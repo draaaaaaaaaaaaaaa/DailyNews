@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyNews">
         <activity
-            android:name=".ui.DetailActivity"
+            android:name=".ui.Deatail.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"

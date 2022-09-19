@@ -1,4 +1,4 @@
-package com.daffa.dailynews.ui
+package com.daffa.dailynews.ui.Deatail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,5 +8,11 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+    }
+
+
+
+    companion object {
+        val DETAIL_DATA = "detail"
     }
 }

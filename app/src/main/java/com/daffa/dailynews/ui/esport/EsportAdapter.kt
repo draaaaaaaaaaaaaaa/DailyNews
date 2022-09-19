@@ -1,24 +1,24 @@
-package com.daffa.dailynews.ui.home
+package com.daffa.dailynews.ui.esport
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.daffa.dailynews.databinding.FragmentHomeBinding
 import com.daffa.dailynews.databinding.RowItemBinding
+import com.daffa.dailynews.network.response.EsportResponseItem
 import com.daffa.dailynews.network.response.HomeResponseItem
-import com.daffa.dailynews.ui.Deatail.DetailActivity
 
-class HomeAdapter(private val HomeList: List<HomeResponseItem>) :
-    RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
+class EsportAdapter(private val EsportList: List<EsportResponseItem>) :
+    RecyclerView.Adapter<EsportAdapter.MyViewHolder>() {
     class MyViewHolder(val binding: RowItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MyViewHolder (
         RowItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-            )
+    )
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val data = HomeList[position]
+        val data = EsportList[position]
         holder.binding.apply {
             tvCategory.text = data.tag
             tvTitle.text =data.title
@@ -26,13 +26,8 @@ class HomeAdapter(private val HomeList: List<HomeResponseItem>) :
             Glide.with(imgNews.context)
                 .load(data.thumb)
                 .into(imgNews)
-            holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.DETAIL_DATA, HomeList[position])
-                it.context.startActivity(intent)
-            }
         }
     }
 
-    override fun getItemCount(): Int = HomeList.size
+    override fun getItemCount(): Int = EsportList.size
 }
