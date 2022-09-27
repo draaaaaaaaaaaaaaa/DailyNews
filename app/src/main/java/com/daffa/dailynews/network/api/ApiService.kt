@@ -16,4 +16,7 @@ interface ApiService {
 
     @GET("api/games/lazy-talk")
     fun getTalk() : Call<List<TalkResponseItem>>
+
+    @GET("api/games/review")
+    fun getRev() : Call<List<ReviewResponseItem>>
 }
