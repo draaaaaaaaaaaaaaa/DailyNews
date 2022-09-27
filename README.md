@@ -1,2 +1,2 @@
 # DailyNews
-Kotlin application for gaming news
+Kotlin application for gaming newss
