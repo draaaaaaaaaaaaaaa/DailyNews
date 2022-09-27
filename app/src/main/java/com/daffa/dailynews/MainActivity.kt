@@ -1,11 +1,8 @@
 package com.daffa.dailynews
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,24 +10,19 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.app.NotificationCompat.PRIORITY_DEFAULT
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.media.app.NotificationCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.*
-import com.daffa.dailynews.R
 import com.daffa.dailynews.databinding.ActivityMainBinding
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var notificationChannel: NotificationChannel
-    lateinit var notificationManager: NotificationManager
-    lateinit var builder: Notification.Builder
-    private val channelId = "12345"
-    private val description = "Test Notification"
+    private val channelId = "001"
 
     private var _appBarConfig: AppBarConfiguration? = null
     private val appBarConfig get() = _appBarConfig as AppBarConfiguration
@@ -44,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         supportActionBar?.hide()
 
@@ -64,24 +57,25 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfig)
         navView.setupWithNavController(navController)
 
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as
-                NotificationManager
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
-            notificationChannel.lightColor = Color.BLUE
-            notificationManager.createNotificationChannel(notificationChannel)
-            builder = Notification.Builder(this, channelId)
-                .setContentTitle("Wereld Notification")
-                .setContentText("Search your destination")
-                .setSmallIcon(R.drawable.daily_news)
-
-        }
-        notificationManager.notify(12345, builder.build())
-
         drawerLayout.openDrawer(Gravity.LEFT)
         drawerLayout.closeDrawer(Gravity.LEFT)
 
+        createNotificationChannel()
+        displayNotificationStart()
+    }
+
+    private fun displayNotificationStart() {
+        val builder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.img_contoh)
+            .setContentTitle("Hi!!")
+            .setContentText("Welcome back captain")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(1, builder.build())
+        }
     }
 
 
@@ -101,5 +95,15 @@ class MainActivity : AppCompatActivity() {
             item,
             navController
         ) || super.onOptionsItemSelected(item)
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(channelId, "countdown", NotificationManager.IMPORTANCE_HIGH).apply {
+                description = "Notif when countdown end."
+            }
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }

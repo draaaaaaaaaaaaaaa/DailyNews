@@ -25,10 +25,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/poppins_medium"
-                android:maxLines="2"
+                android:maxLines="3"
                 android:text="@string/nama_berita_txt"
                 android:textColor="@color/ungu_tua"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
                     android:text="May 2,2022"
-                    android:textColor="@color/abu"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />
 
@@ -53,6 +53,7 @@
                     android:text=" by "
                     android:textColor="@color/abu"
                     android:textSize="12sp"
+                    android:layout_marginHorizontal="2dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -61,15 +62,15 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_mediumitalic"
                     android:text="Kompas.com"
-                    android:textColor="@color/ungu_tua"
+                    android:textColor="@color/red"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/img_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginVertical="16dp"
                 android:scaleType="centerCrop"

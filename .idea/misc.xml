@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Daffa/AndroidStudioProjects/DailyNews/app/src/main/res/drawable/daily_news.xml" value="0.1" />
+        <entry key="..\:/Users/Daffa/AndroidStudioProjects/DailyNews/app/src/main/res/layout/activity_detail.xml" value="0.19198312236286919" />
+        <entry key="..\:/Users/Daffa/AndroidStudioProjects/DailyNews/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/Daffa/AndroidStudioProjects/DailyNews/app/src/main/res/layout/row_item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Daffa/AndroidStudioProjects/Daily_News/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1355" />
         <entry key="..\:/Users/Daffa/AndroidStudioProjects/Daily_News/app/src/main/res/drawable/bg_search.xml" value="0.1355" />
         <entry key="..\:/Users/Daffa/AndroidStudioProjects/Daily_News/app/src/main/res/drawable/btn_back.xml" value="0.1355" />
